@@ -25,11 +25,6 @@ public class ColorPantallaActivity extends AppCompatActivity {
 
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
-            case MotionEvent.ACTION_MOVE:
-                red = (float)Math.random();
-                green = (float)Math.random();
-                blue = (float)Math.random();
-                alfa = (float)Math.random();
 
         }
 

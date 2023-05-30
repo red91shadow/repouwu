@@ -7,23 +7,22 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class RenderColores implements GLSurfaceView.Renderer {
 
-    private double vIncremento;
+    private double vIncremento=1;
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         //rgb
-        gl.glClearColor(1,0,0,1);
     }
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
-        
+        gl.glClearColor(1,0,0,1);
+
     }
 
     @Override
     public void onDrawFrame(GL10 gl) {
         gl.glClear(gl.GL_COLOR_BUFFER_BIT);
+        gl.glClearColor((float) Math.random(), (float) Math.random(), (float) Math.random(),0.1f);
         vIncremento+=0.001;
-//        gl.glClearColor(1F, (float) vIncremento,0,1);
-
     }
 }
