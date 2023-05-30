@@ -4,6 +4,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -35,25 +36,20 @@ public class ActivityFiguras extends AppCompatActivity {
                 opcionSel = rgOpciones.getCheckedRadioButtonId();
 
                 if (opcionSel > 0) {
-                    switch (opcionSel) {
-                        case R.id.rd_pintarPantalla: {
-                            renderer= new RenderColores();
-                            break;
-                        }
-                        case R.id.rd_puntos: {
-                            break;
-                        }
-                        case R.id.rd_lineas: {
-                            break;
-                        }
-                        case R.id.rd_Poligonos: {
-                            break;
-                        }
-                        case R.id.rd_triangulos: {
-                            break;
-                        }
-
+                    RadioButton radioButton = (RadioButton) findViewById(opcionSel);
+                    if (radioButton.equals(R.id.button_pintar)) {
+                        renderer = new RenderColores();
                     }
+                    else if (radioButton.equals(R.id.rd_puntos)) {
+                    }
+                    else if (radioButton.equals(R.id.rd_lineas)) {
+                    }
+                    else if (radioButton.equals(R.id.rd_Poligonos)) {
+                    }
+                    else if (radioButton.equals(R.id.rd_triangulos)) {
+                    }
+
+
 
                 }else {
                     Toast.makeText(ActivityFiguras.this, "xd", Toast.LENGTH_SHORT).show();
