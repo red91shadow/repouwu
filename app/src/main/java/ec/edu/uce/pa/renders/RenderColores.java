@@ -7,6 +7,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class RenderColores implements GLSurfaceView.Renderer {
 
+
     private double vIncremento=1;
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {

@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ec.edu.uce.pa.R;
+import ec.edu.uce.pa.renders.MyGLRenderer;
 import ec.edu.uce.pa.renders.RenderColores;
 import ec.edu.uce.pa.renders.RenderLinea;
 import ec.edu.uce.pa.renders.RenderPuntos;
@@ -34,23 +35,23 @@ public class ActivityFiguras extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int opcionSel;
-                RadioGroup rgOpciones = findViewById(R.id.RdPantalla);
+                RadioGroup rgOpciones = (RadioGroup) findViewById(R.id.RdPantalla);
                 opcionSel = rgOpciones.getCheckedRadioButtonId();
 
                 if (opcionSel > 0) {
-                    RadioButton radioButton = (RadioButton) findViewById(opcionSel);
-                    if (radioButton.equals(R.id.button_pintar)) {
+
+                    if (opcionSel==R.id.button_pintar) {
                         renderer = new RenderColores();
                     }
-                    else if (radioButton.equals(R.id.rd_puntos)) {
+                    else if (opcionSel==R.id.rd_puntos) {
                         renderer= new RenderPuntos();
                     }
-                    else if (radioButton.equals(R.id.rd_lineas)) {
+                    else if (opcionSel==R.id.rd_lineas) {
                         renderer= new RenderLinea();
                     }
-                    else if (radioButton.equals(R.id.rd_Poligonos)) {
+                    else if (opcionSel==R.id.rd_Poligonos) {
                     }
-                    else if (radioButton.equals(R.id.rd_triangulos)) {
+                    else if (opcionSel==R.id.rd_triangulos) {
                     }
 
 
