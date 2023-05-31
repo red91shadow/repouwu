@@ -6,7 +6,7 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public class Punto {
+public class Linea {
     private FloatBuffer bufferVetices;
     private FloatBuffer bufferColores;
     private final static int byteFlotante = 4;
@@ -14,7 +14,7 @@ public class Punto {
     private final static  int compPorVertices=2;
     private final static  int compPorColor=4;
 
-    public Punto() {
+    public Linea() {
         float[] vertices = {
                 4.0f, 4.0f,     //0
                 4.0f, -4.0f,    //1
@@ -53,7 +53,7 @@ public class Punto {
 
 
 
-        gl.glPointSize(50);
+        gl.glLineWidth(10);
 //        gl.glColor4f(4,4,4,4);
 //        gl.glDrawArrays(GL10.GL_POINTS,0,-4);
 
