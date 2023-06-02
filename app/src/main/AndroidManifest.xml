@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MainPage1"
+            android:name=".activity.MyGLSurfaceView$MainPage1"
             android:exported="false" />
         <activity
             android:name=".activity.ActivityFiguras"

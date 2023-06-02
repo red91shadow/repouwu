@@ -17,7 +17,7 @@ public class ColorPantallaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         GLSurfaceView view = new GLSurfaceView(this);
         view.setEGLContextClientVersion(1);
-        view.setRenderer(new ec.edu.uce.pa.renders.RenderColores());
+        view.setRenderer(ActivityFiguras.getRenderer());
         setContentView(view);
     }
 

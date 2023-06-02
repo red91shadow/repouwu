@@ -1,22 +1,22 @@
 package ec.edu.uce.pa.renders;
 
 import android.opengl.GLSurfaceView;
+import android.widget.Toast;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import ec.edu.uce.pa.geometrias.Linea;
 import ec.edu.uce.pa.geometrias.Punto;
 
-public class RenderLinea implements GLSurfaceView.Renderer {
+public class RenderPunto implements GLSurfaceView.Renderer {
 
-    private float vIncremento = 1.0f;
-    private Linea linea;
+    private float vIncremento = 0.1f;
+    private Punto punto;
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig eglConfig) {
         gl.glClearColor(0.5f,0.5f,0.5f,1.0f);
-        linea = new Linea();
+        punto = new Punto();
     }
 
     @Override
@@ -34,15 +34,15 @@ public class RenderLinea implements GLSurfaceView.Renderer {
         gl.glMatrixMode(gl.GL_MODELVIEW);
         gl.glLoadIdentity();
 
-        gl.glTranslatef(0.0f,0.0f,1.0f);
-        //gl.glRotatef(vIncremento, 0, 0, 1);
+        gl.glTranslatef(0.0f,0.0f,-2.0f);
+        gl.glRotatef(vIncremento, 0, 0, 1);
+
+        punto.dibujar(gl);
+
+        gl.glTranslatef(0.0f,0.0f,-2.0f);
+        punto.dibujar(gl);
+
         vIncremento += 0.1f;
-        linea.dibujar(gl);
-
-        gl.glTranslatef(0.0f,0.0f,0.0f);
-        //linea.dibujar(gl);
-
-
 
     }
 }

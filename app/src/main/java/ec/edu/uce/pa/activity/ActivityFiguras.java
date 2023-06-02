@@ -1,10 +1,10 @@
 package ec.edu.uce.pa.activity;
 
+import android.content.Intent;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -12,14 +12,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ec.edu.uce.pa.R;
+import ec.edu.uce.pa.*;
 import ec.edu.uce.pa.renders.MyGLRenderer;
-import ec.edu.uce.pa.renders.RenderColores;
 import ec.edu.uce.pa.renders.RenderLinea;
-import ec.edu.uce.pa.renders.RenderPuntos;
+import ec.edu.uce.pa.renders.RenderPunto;
 
 public class ActivityFiguras extends AppCompatActivity {
     private GLSurfaceView view;
-    private GLSurfaceView.Renderer renderer;
+
+    public static GLSurfaceView.Renderer getRenderer() {
+        return renderer;
+    }
+
+    private static GLSurfaceView.Renderer renderer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,10 +46,10 @@ public class ActivityFiguras extends AppCompatActivity {
                 if (opcionSel > 0) {
 
                     if (opcionSel==R.id.button_pintar) {
-                        renderer = new RenderColores();
+                        renderer= null;
                     }
                     else if (opcionSel==R.id.rd_puntos) {
-                        renderer= new RenderPuntos();
+                        renderer= new RenderPunto();
                     }
                     else if (opcionSel==R.id.rd_lineas) {
                         renderer= new RenderLinea();
@@ -53,8 +58,8 @@ public class ActivityFiguras extends AppCompatActivity {
                     }
                     else if (opcionSel==R.id.rd_triangulos) {
                     }
-
-
+                    Intent intent = new Intent(ActivityFiguras.this, ColorPantallaActivity.class);
+                    startActivity(intent);
 
                 }else {
                     Toast.makeText(ActivityFiguras.this, "xd", Toast.LENGTH_SHORT).show();
