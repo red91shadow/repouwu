@@ -18,6 +18,7 @@ import ec.edu.uce.pa.renders.RenderLinea;
 import ec.edu.uce.pa.renders.RenderPunto;
 
 public class ActivityFiguras extends AppCompatActivity {
+    public static int numeroPuntos;
     private GLSurfaceView view;
 
     public static GLSurfaceView.Renderer getRenderer() {

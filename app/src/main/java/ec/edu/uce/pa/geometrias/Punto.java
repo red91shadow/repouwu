@@ -6,7 +6,7 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import ec.edu.uce.pa.activities.ActivityFiguras;
+import ec.edu.uce.pa.activity.ActivityFiguras;
 
 public class Punto {
     private FloatBuffer bufferVertices;
@@ -14,7 +14,7 @@ public class Punto {
     private final static int byteFlotante =4; //son 4 por que en  un flotante hay 4 bytes
     private final static int compPorVertice=2;
     private final static int compPorColores=4;
-    private static int numeroPuntos = ActivityFiguras.numeroPuntos;
+        private static int numeroPuntos = ActivityFiguras.numeroPuntos;
 
     public Punto() {
         float[] verices = {
