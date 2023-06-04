@@ -14,67 +14,55 @@ import androidx.appcompat.app.AppCompatActivity;
 import ec.edu.uce.pa.R;
 import ec.edu.uce.pa.*;
 import ec.edu.uce.pa.renders.MyGLRenderer;
+import ec.edu.uce.pa.renders.RenderCamion;
 import ec.edu.uce.pa.renders.RenderLinea;
 import ec.edu.uce.pa.renders.RenderPunto;
+import ec.edu.uce.pa.renders.RenderesColores;
 
 public class ActivityFiguras extends AppCompatActivity {
-    public static int numeroPuntos;
     private GLSurfaceView view;
 
-    public static GLSurfaceView.Renderer getRenderer() {
-        return renderer;
-    }
-
-    private static GLSurfaceView.Renderer renderer;
+    private GLSurfaceView.Renderer renderer;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_figuras);
 
         view = new GLSurfaceView(this);
         view.setEGLContextClientVersion(1);
-        renderer=null;
+        renderer = null;
 
-        Button btnPintar = findViewById(R.id.button_pintar);
-        btnPintar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int opcionSel;
-                RadioGroup rgOpciones = (RadioGroup) findViewById(R.id.RdPantalla);
-                opcionSel = rgOpciones.getCheckedRadioButtonId();
+        Button btnDibujar = findViewById(R.id.button_pintar);
+        btnDibujar.setOnClickListener(v -> {
+            int opcionSel;
+            RadioGroup rgOpcines = findViewById(R.id.RgPantalla);
+            opcionSel = rgOpcines.getCheckedRadioButtonId();
 
-                if (opcionSel > 0) {
+            if (opcionSel > 0) {
 
-                    if (opcionSel==R.id.button_pintar) {
-                        renderer= null;
-                    }
-                    else if (opcionSel==R.id.rd_puntos) {
-                        renderer= new RenderPunto();
-                    }
-                    else if (opcionSel==R.id.rd_lineas) {
-                        renderer= new RenderLinea();
-                    }
-                    else if (opcionSel==R.id.rd_Poligonos) {
-                    }
-                    else if (opcionSel==R.id.rd_triangulos) {
-                    }
-                    Intent intent = new Intent(ActivityFiguras.this, ColorPantallaActivity.class);
-                    startActivity(intent);
+                if (opcionSel == R.id.rb_pintarPantalla) {
+                    renderer = new RenderesColores();
+                } else if (opcionSel == R.id.rb_puntos) {
+                    renderer = new RenderPunto();
+                } else if (opcionSel == R.id.rb_lineas) {
+                    renderer = new RenderLinea();
+                } else if (opcionSel == R.id.rb_triangulos) {
 
-                }else {
-                    Toast.makeText(ActivityFiguras.this, "xd", Toast.LENGTH_SHORT).show();
+                } else if (opcionSel == R.id.rb_poligonos) {
+
+                } else if (opcionSel == R.id.rb_carrito) {
+                    renderer = new RenderCamion();
                 }
+                view.setRenderer(renderer);
+                setContentView(view);
 
-            }
+            } else
+                Toast.makeText(ActivityFiguras.this, "Seleccione una opcion", Toast.LENGTH_LONG).show();
         });
 
         Button btnSalir = findViewById(R.id.button_salir);
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
-            }
-        });
+        btnSalir.setOnClickListener(e->System.exit(0));
     }
+
 }
