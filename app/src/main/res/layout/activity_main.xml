@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroungGrey"
-    tools:context="ec.edu.uce.pa.activity.MainActivity">
+    tools:context="ec.edu.uce.pa.MainActivity">
 
 
 

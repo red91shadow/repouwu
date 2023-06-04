@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import ec.edu.uce.pa.ActivityFiguras;
 import ec.edu.uce.pa.R;
 import ec.edu.uce.pa.renders.RenderCamion;
 

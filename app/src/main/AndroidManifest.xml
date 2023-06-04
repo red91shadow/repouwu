@@ -16,7 +16,7 @@
             android:name=".activity.MyGLSurfaceView$MainPage1"
             android:exported="false" />
         <activity
-            android:name=".activity.ActivityFiguras"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,15 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity-->
-<!--            android:name=".activity.MainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
         <activity
             android:name=".activity.ColorPantallaActivity"
             android:exported="false">

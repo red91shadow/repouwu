@@ -142,7 +142,6 @@ public class Camion {
                 0.0f, 1.0f, 0.0f, 1.0f, //10
                 0.0f, 1.0f, 0.0f, 1.0f,
                 0.0f, 1.0f, 0.0f, 1.0f,
-
                 /////
                 0.0f, 0.0f, 1.0f, 1.0f,
                 0.0f, 0.0f, 1.0f, 1.0f,
@@ -166,10 +165,7 @@ public class Camion {
                 0.0f, 0.0f, 1.0f, 1.0f,
                 0.0f, 0.0f, 1.0f, 1.0f,
                 0.0f, 0.0f, 1.0f, 1.0f,
-
-
         };
-
 
         ByteBuffer buffer = ByteBuffer.allocateDirect(verices.length * byteFlotante);
         buffer.order(ByteOrder.nativeOrder());
@@ -194,7 +190,8 @@ public class Camion {
         gl.glColorPointer(compPorColores, gl.GL_FLOAT, 0, bufferColores);
         gl.glEnableClientState(gl.GL_COLOR_ARRAY);
 
-        gl.glLineWidth(7);//para el tamaño del punto
+        //para el tamaño del punto
+        gl.glLineWidth(7);
         gl.glDrawArrays(gl.GL_LINES, 0, 54);
 
         gl.glFrontFace(gl.GL_CCW);

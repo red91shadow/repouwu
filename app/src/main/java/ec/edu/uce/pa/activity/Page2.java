@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import ec.edu.uce.pa.MainActivity;
 import ec.edu.uce.pa.R;
 
 public class Page2 extends AppCompatActivity {
