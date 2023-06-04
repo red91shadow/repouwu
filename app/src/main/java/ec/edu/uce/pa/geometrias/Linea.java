@@ -6,73 +6,81 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+
 public class Linea {
     private FloatBuffer bufferVertices;
     private FloatBuffer bufferColores;
-    private final static int byteFlotante =4; //son 4 por que en  un flotante hay 4 bytes
-    private final static int compPorVertice=2;
-    private final static int compPorColores=4;
+    private final static int byteFlotante = 4; // 4 bytes per float
+    private final static int compPorVertice = 2;
+    private final static int compPorColores = 4;
+
     public Linea() {
-        float[] verices = {
-                4.0f,4.0f,   //0
-                4.0f,-4.0f,  //1
-                -4.0f,-4.0f,  //2
-                -4.0f,4.0f   //3
+        float[] vertices = {
+                4.0f, 4.0f,   // 0
+                4.0f, -4.0f,  // 1
+                -4.0f, -4.0f, // 2
+                -4.0f, 4.0f,  // 3
+                4.0f, 4.0f    // 0
         };
         float[] colores = {
-                1.0f, 0.0f, 0.0f, 1.0f,//rojo se le asigna al vertice 0
-                0.0f, 1.0f, 0.0f, 1.0f,//verde se le asigna al vertice 1
-                0.0f, 0.0f, 1.0f, 1.0f,//azul se le asigna al vertice 2
-                1.0f, 1.0f, 0.0f, 1.0f,//amarillo se le asigna al vertice 3
+                1.0f, 0.0f, 0.0f, 1.0f, // red assigned to vertex 0
+                0.0f, 1.0f, 0.0f, 1.0f, // green assigned to vertex 1
+                0.0f, 0.0f, 1.0f, 1.0f, // blue assigned to vertex 2
+                1.0f, 0.0f, 1.0f, 1.0f, // yellow assigned to vertex 3
+                1.0f, 0.0f, 1.0f, 1.0f  // yellow assigned to vertex 3
         };
 
-
-        ByteBuffer buffer = ByteBuffer.allocateDirect(verices.length*byteFlotante);
+        ByteBuffer buffer = ByteBuffer.allocateDirect(vertices.length * byteFlotante);
         buffer.order(ByteOrder.nativeOrder());
         bufferVertices = buffer.asFloatBuffer();
-        bufferVertices.put(verices);
+        bufferVertices.put(vertices);
         bufferVertices.position(0);
 
-        buffer = ByteBuffer.allocateDirect(colores.length*byteFlotante);
+        buffer = ByteBuffer.allocateDirect(colores.length * byteFlotante);
         buffer.order(ByteOrder.nativeOrder());
         bufferColores = buffer.asFloatBuffer();
         bufferColores.put(colores);
         bufferColores.position(0);
     }
 
-    public void dibujar (GL10 gl){
-        gl.glFrontFace(gl.GL_CW);
+    public void dibujar(GL10 gl) {
+        gl.glFrontFace(GL10.GL_CW);
         bufferVertices.position(0);
-        gl.glVertexPointer(compPorVertice, gl.GL_FLOAT, 0, bufferVertices);
-        gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
+        gl.glVertexPointer(compPorVertice, GL10.GL_FLOAT, 0, bufferVertices);
+        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
         bufferColores.position(0);
-        gl.glColorPointer(compPorColores, gl.GL_FLOAT,0,bufferColores);
-        gl.glEnableClientState(gl.GL_COLOR_ARRAY);
+        gl.glColorPointer(compPorColores, GL10.GL_FLOAT, 0, bufferColores);
+        gl.glEnableClientState(GL10.GL_COLOR_ARRAY);
 
-        gl.glLineWidth(10);//para el tamaño del punto
-        gl.glDrawArrays(gl.GL_LINES,0,4);
+        // Set the line width
+        gl.glLineWidth(2.0f);
 
-        /*// este es una forma pero no es la màs optioma para eso va la matriz de colores
-        //le asigno un color a el vertice que corresponde al indice 0
-        gl.glColor4f(1.0f, 0.0f,0.0f,1.0f);
-        gl.glDrawArrays(gl.GL_POINTS,0,1);
+        // Calculate the step size for the dashed line segments
+        float dashLength = 0.1f;
+        float gapLength = 0.1f;
+        float segmentLength = dashLength + gapLength;
 
-        //le asigno un color a el vertice que corresponde al indice 1
-        gl.glColor4f(0.0f, 1.0f,0.0f,1.0f);
-        gl.glDrawArrays(gl.GL_POINTS,1,1);
+        // Draw the dashed line segments
+        for (int i = 0; i < 4; i++) {
+            float x1 = bufferVertices.get(i * 2);
+            float y1 = bufferVertices.get(i * 2 + 1);
+            float x2 = bufferVertices.get((i + 1) * 2);
+            float y2 = bufferVertices.get((i + 1) * 2 + 1);
+            float dx = x2 - x1;
+            float dy = y2 - y1;
+            float length = (float) Math.sqrt(dx * dx + dy * dy);
+            float segmentCount = length / segmentLength;
 
-        //le asigno un color a el vertice que corresponde al indice 2
-        gl.glColor4f(0.0f, 0.0f,1.0f,1.0f);
-        gl.glDrawArrays(gl.GL_POINTS,2,1);
+            for (int j = 0; j < segmentCount; j++) {
+                if (j % 2 == 0) {
+                    gl.glDrawArrays(GL10.GL_LINES, (i * 2 + j) * 2, 2);
+                }
+            }
+        }
 
-        //le asigno un color a el vertice que corresponde al indice 2
-        gl.glColor4f(1.0f, 0.5f,3.0f,1.0f);
-        gl.glDrawArrays(gl.GL_POINTS,3,1);
-        */
-
-        gl.glFrontFace(gl.GL_CCW);
-        gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
-        gl.glDisableClientState(gl.GL_COLOR_ARRAY);
+        gl.glFrontFace(GL10.GL_CCW);
+        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+        gl.glDisableClientState(GL10.GL_COLOR_ARRAY);
     }
 }
