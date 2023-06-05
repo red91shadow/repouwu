@@ -14,18 +14,19 @@ public class Linea {
     private final static int compPorColores=4;
     public Linea() {
         float[] verices = {
-                4.0f,4.0f,   //0
-                4.0f,-4.0f,  //1
-                -4.0f,-4.0f,  //2
-                -4.0f,4.0f,  //3
-                4.0f,4.0f,   //0
+                2.0f,1.0f,  //1
+                0.0f,1.0f,  //1
+                0.0f,0.0f,   //0
+                2.0f,0.0f,  //1
+                2.0f,1.0f,  //1
         };
+        // asignamos cualquier color
         float[] colores = {
-                1.0f, 0.0f, 0.0f, 1.0f,//rojo se le asigna al vertice 0
-                0.0f, 1.0f, 0.0f, 1.0f,//verde se le asigna al vertice 1
-                0.0f, 0.0f, 1.0f, 1.0f,//azul se le asigna al vertice 2
-                1.0f, 0.0f, 1.0f, 1.0f,//amarillo se le asigna al vertice 3
-                1.0f, 0.0f, 1.0f, 1.0f,//amarillo se le asigna al vertice 3
+                1.0f, 0.0f, 0.0f, 1.0f,
+                0.0f, 1.0f, 0.0f, 1.0f,
+                0.0f, 0.0f, 1.0f, 1.0f,
+                0.0f, 0.0f, 1.0f, 1.0f,
+                1.0f, 0.0f, 1.0f, 1.0f,
         };
 
 

@@ -1,4 +1,5 @@
 package ec.edu.uce.pa.geometrias;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -31,28 +32,17 @@ public class Punto {
     }
 
     private float[] generateCircleVertices(float radius, int numPoints) {
-        // Create an array to store the vertices (coordinates) of the circle
         float[] vertices = new float[numPoints * 2];
 
-        // Calculate the angle increment between each point on the circle
         double angleIncrement = 2 * Math.PI / numPoints;
 
-        // Start with an initial angle of 0
         double angle = 0;
 
-        // Loop through each point on the circle
         for (int i = 0; i < numPoints; i++) {
-            // Calculate the x-coordinate of the current point using the cosine of the angle
             vertices[i * 2] = (float) (radius * Math.cos(angle));
-
-            // Calculate the y-coordinate of the current point using the sine of the angle
             vertices[i * 2 + 1] = (float) (radius * Math.sin(angle));
-
-            // Increment the angle for the next point
             angle += angleIncrement;
         }
-
-        // Return the generated vertices
         return vertices;
     }
 
@@ -60,10 +50,10 @@ public class Punto {
         float[] colors = new float[numPoints * compPorColores];
 
         for (int i = 0; i < numPoints; i++) {
-            colors[i * compPorColores] = (float) Math.random();    // Red component
-            colors[i * compPorColores + 1] = (float) Math.random();  // Green component
-            colors[i * compPorColores + 2] = (float) Math.random();  // Blue component
-            colors[i * compPorColores + 3] = 1.0f;                   // Alpha component
+            colors[i * compPorColores] = (float) Math.random();
+            colors[i * compPorColores + 1] = (float) Math.random();
+            colors[i * compPorColores + 2] = (float) Math.random();
+            colors[i * compPorColores + 3] = 1.0f;
         }
 
         return colors;

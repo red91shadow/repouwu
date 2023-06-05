@@ -26,6 +26,7 @@ import android.app.Activity;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
+import ec.edu.uce.pa.renders.RenderCamion;
 import ec.edu.uce.pa.renders.RenderLinea;
 import ec.edu.uce.pa.renders.RenderPunto;
 
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
-        glSurfaceView.setRenderer(new RenderPunto());
+        glSurfaceView.setRenderer(new RenderCamion());
         setContentView(glSurfaceView);
     }
 
