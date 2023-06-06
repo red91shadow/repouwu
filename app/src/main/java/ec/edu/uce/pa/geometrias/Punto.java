@@ -69,7 +69,7 @@ public class Punto {
         gl.glColorPointer(compPorColores, gl.GL_FLOAT, 0, bufferColores);
         gl.glEnableClientState(gl.GL_COLOR_ARRAY);
 
-        gl.glPointSize(25);
+        gl.glPointSize(15);
         gl.glDrawArrays(gl.GL_POINTS, 0, numPuntos);
 
         gl.glFrontFace(gl.GL_CCW);

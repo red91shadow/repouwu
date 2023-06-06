@@ -10,6 +10,8 @@ import ec.edu.uce.pa.geometrias.Linea;
 import ec.edu.uce.pa.geometrias.Punto;
 
 public class RenderCamion implements GLSurfaceView.Renderer {
+
+    private float vIncremento;
     private Linea linea;
     private Camion camion;
     private Punto punto;
@@ -24,9 +26,10 @@ public class RenderCamion implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(GL10 gl, int ancho, int alto) {
+        float aspectRatio = ((float) alto/(float) ancho);
         gl.glViewport(0, 0, ancho, alto);
         gl.glMatrixMode(gl.GL_PROJECTION);
-        gl.glFrustumf(-5, 5, -5, 5, 3f, 30);
+        gl.glFrustumf(-aspectRatio, aspectRatio, -5, 5, 3f, 30);
 
         //gl.glOrthof(-5, 5, -5, 5, 1, 30);
     }
@@ -37,14 +40,18 @@ public class RenderCamion implements GLSurfaceView.Renderer {
         gl.glMatrixMode(gl.GL_MODELVIEW);
         gl.glLoadIdentity();
 
-        gl.glTranslatef(0.0f, 0.0f, -3.0f);
+        gl.glTranslatef((float) Math.sin(vIncremento),0,0);
+
+        gl.glTranslatef(0.0f, 0.0f, -6.0f);
 
         camion.dibujar(gl);
         linea.dibujar(gl);
 
-        gl.glTranslatef(1.5f, -0.5f, 0.0f);
+        gl.glTranslatef(1f, -0.5f, 0.0f);
         punto.dibujar(gl);
         gl.glTranslatef(-3.0f, 0.0f, 0.0f);
         punto.dibujar(gl);
+
+        vIncremento += 0.01f;
     }
 }
