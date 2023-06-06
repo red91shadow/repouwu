@@ -24,15 +24,18 @@ public class Triangulo {
                 -4.0f,4.0f,
         };
         float[] colores = {
-                1.0f, 0.0f, 0.0f, 1.0f,//rojo se le asigna al vertice 0
-                0.0f, 1.0f, 0.0f, 1.0f,//verde se le asigna al vertice 1
-                0.0f, 1.0f, 0.5f, 1.0f,//verde se le asigna al vertice 1
-                0.0f, 1.0f, 0.0f, 1.0f,//verde se le asigna al vertice 1
-                0.5f, 1.0f, 0.0f, 1.0f,//verde se le asigna al vertice 1
-                0.0f, 0.0f, 1.0f, 1.0f,//azul se le asigna al vertice 2
+                0.0f, 1.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 1.0f,
+                0.0f, 1.0f, 0.0f, 1.0f,
+                0.0f, 1.0f, 0.5f, 1.0f,
+                0.5f, 1.0f, 0.0f, 1.0f,
+                0.0f, 0.0f, 1.0f, 1.0f,
         };
         byte[] indices = {
-                0,1,2,3,4,5,0,5,2,5,2,3
+                0,1,2,
+                3,4,5,
+                0,5,2,
+                5,2,3
         };
 
 
