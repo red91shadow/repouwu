@@ -30,13 +30,10 @@ public class RenderLinea implements GLSurfaceView.Renderer {
         gl.glClear(gl.GL_COLOR_BUFFER_BIT);
         gl.glMatrixMode(gl.GL_MODELVIEW); //matriz modelo
         gl.glLoadIdentity();//centro de cordenadas
-        gl.glTranslatef(0.0f, 0.0f,-4.0f); //la posiciòn donde se dibujarà
-//        gl.glScalef(1,2,1);//1 no escalo, 2 escalo el doble, en este caso se escala en el eje y
-//        vIncremento += 0.1;
-//        gl.glRotatef(vIncremento, 0,0,1);//rota el valor de incremento  grados en el eje z
-        linea.dibujar(gl);//dibuja una vez el punto
-        gl.glTranslatef(0.0f, 0.0f,-1.0f);//se traslada en el eje z
-        linea.dibujar(gl); //dibuja una segunda vez el punto
+        gl.glTranslatef(0.0f, 0.0f,-4.0f);
+        linea.dibujar(gl);
+        gl.glTranslatef(0.0f, 0.0f,-1.0f);
+        linea.dibujar(gl);
 
 
     }

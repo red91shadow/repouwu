@@ -25,7 +25,7 @@ public class RenderCubo implements GLSurfaceView.Renderer {
         float aspectNoRatio=  ((float)ancho/(float)alto);
         gl.glViewport(0,0,ancho, alto);//origen "x=0" y "y=0" por defecto alto y ancho de la pantalla, es practicamente la ventana de copordenas donde se va a dibujar
         gl.glMatrixMode(gl.GL_PROJECTION);
-        gl.glFrustumf(-aspectRatio, aspectRatio, -aspectNoRatio,aspectNoRatio,3,30);// es la mas usada
+        gl.glFrustumf(-aspectRatio, aspectRatio, -4,4,3,30);// es la mas usada
     }
 
     @Override
@@ -35,7 +35,7 @@ public class RenderCubo implements GLSurfaceView.Renderer {
         gl.glLoadIdentity();
 
 
-        gl.glTranslatef(0.0f, 0.0f,-6.0f);
+        gl.glTranslatef(0.0f, 0.0f,-5.0f);
         gl.glRotatef(vIncremento,1,1,0);
         cubo.dibujar(gl);
         vIncremento+=1f;
