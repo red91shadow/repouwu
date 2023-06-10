@@ -25,17 +25,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ColorPantallaActivity"
-            android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
             android:name=".activity.Page2"
             android:exported="false" />
         <activity
