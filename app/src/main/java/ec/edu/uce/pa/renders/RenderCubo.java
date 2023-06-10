@@ -14,7 +14,7 @@ public class RenderCubo implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig eglConfig) {
-        gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+        gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         gl.glEnable(GL10.GL_DEPTH_TEST);
         cubo = new Cubo();
     }

@@ -16,39 +16,103 @@ public class Cubo {
     private final static int compPorColores=4;
     public Cubo() {
         float[] vertices = {
-                -1.0f,1.0f,1.0f,
-                1.0f,1.0f,1.0f,   //0
-                1.0f,-1.0f,1.0f,   //0
-                -1.0f,-1.0f,1.0f,   //0
-                -1.0f,1.0f,-1.0f,   //0
-                1.0f,1.0f,-1.0f,   //0
-                1.0f,-1.0f,-1.0f,   //0
-                -1.0f,-1.0f,-1.0f   //0
-                };
-        float[] colores = {
-                0.0f, 0.5f, 0.5f, 1.0f,
-                0.0f, 0.5f, 0.5f, 1.0f,
-                0.5f, 1.0f, 0.0f, 0.8f,
-                0.5f, 1.0f, 0.0f, 0.8f,
-                0.0f, 0.5f, 0.5f, 1.0f,
-                0.0f, 0.5f, 0.5f, 1.0f,
-                0.5f, 1.0f, 0.0f, 0.8f,
-                0.5f, 1.0f, 0.0f, 0.8f,
+                // Front face
+                -1.0f,  1.0f,  1.0f, // Top-left
+                1.0f,  1.0f,  1.0f, // Top-right
+                1.0f, -1.0f,  1.0f, // Bottom-right
+                -1.0f, -1.0f,  1.0f, // Bottom-left
 
+                // Back face
+                1.0f,  1.0f, -1.0f, // Top-left
+                -1.0f,  1.0f, -1.0f, // Top-right
+                -1.0f, -1.0f, -1.0f, // Bottom-right
+                1.0f, -1.0f, -1.0f, // Bottom-left
+
+                // Top face
+                -1.0f,  1.0f, -1.0f, // Top-left
+                1.0f,  1.0f, -1.0f, // Top-right
+                1.0f,  1.0f,  1.0f, // Bottom-right
+                -1.0f,  1.0f,  1.0f, // Bottom-left
+
+                // Bottom face
+                -1.0f, -1.0f,  1.0f, // Top-left
+                1.0f, -1.0f,  1.0f, // Top-right
+                1.0f, -1.0f, -1.0f, // Bottom-right
+                -1.0f, -1.0f, -1.0f, // Bottom-left
+
+                // Right face
+                1.0f,  1.0f,  1.0f, // Top-left
+                1.0f,  1.0f, -1.0f, // Top-right
+                1.0f, -1.0f, -1.0f, // Bottom-right
+                1.0f, -1.0f,  1.0f, // Bottom-left
+
+                // Left face
+                -1.0f,  1.0f, -1.0f, // Top-left
+                -1.0f,  1.0f,  1.0f, // Top-right
+                -1.0f, -1.0f,  1.0f, // Bottom-right
+                -1.0f, -1.0f, -1.0f, // Bottom-left
+        };
+        float[] colores = {
+                // Front face
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+
+                // Back face
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+
+                // Top face
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+
+                // Bottom face
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+
+                // Right face
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+
+                // Left face
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
         };
         byte[] indices = {
-                0,2,3,
-                0,1,2,
-                0,5,1,
-                0,4,5,
-                0,7,3,
-                0,4,7,
-                6,2,3,
-                6,3,7,
-                6,2,1,
-                6,1,5,
-                6,7,4,
-                6,4,5
+                // Front face
+                0, 1, 2,
+                2, 3, 0,
+
+                // Back face
+                4, 5, 6,
+                6, 7, 4,
+
+                // Top face
+                8, 9, 10,
+                10, 11, 8,
+
+                // Bottom face
+                12, 13, 14,
+                14, 15, 12,
+
+                // Right face
+                16, 17, 18,
+                18, 19, 16,
+
+                // Left face
+                20, 21, 22,
+                22, 23, 20,
         };
 
 
@@ -80,7 +144,7 @@ public class Cubo {
         gl.glColorPointer(compPorColores, gl.GL_FLOAT,0,bufferColores);
         gl.glEnableClientState(gl.GL_COLOR_ARRAY);
 
-        gl.glDrawElements(gl.GL_TRIANGLES,36,gl.GL_UNSIGNED_BYTE,bufferIndices);
+        gl.glDrawElements(gl.GL_TRIANGLES,bufferIndices.limit(),gl.GL_UNSIGNED_BYTE,bufferIndices);
         gl.glLineWidth(300);
 
         gl.glFrontFace(gl.GL_CCW);
