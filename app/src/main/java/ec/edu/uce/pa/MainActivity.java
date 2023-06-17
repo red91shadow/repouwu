@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
+import ec.edu.uce.pa.renders.CamaraRender;
 import ec.edu.uce.pa.renders.RenderCuboColores;
 
 public class MainActivity extends Activity {
@@ -15,7 +16,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
-        glSurfaceView.setRenderer(new RenderCuboColores());
+        glSurfaceView.setRenderer(new CamaraRender());
         setContentView(glSurfaceView);
     }
 
