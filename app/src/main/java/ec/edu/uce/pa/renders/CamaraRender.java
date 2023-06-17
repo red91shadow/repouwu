@@ -2,14 +2,17 @@ package ec.edu.uce.pa.renders;
 
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
+import android.view.KeyEvent;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import ec.edu.uce.pa.geometrias.CuboColores;
+
 public class CamaraRender implements GLSurfaceView.Renderer {
     private float vIncremento;
     private float i = -5;
+    int keycode=KeyEvent.KEYCODE_SYSTEM_NAVIGATION_RIGHT;
     private CuboColores cubo;
 
     @Override
@@ -29,8 +32,6 @@ public class CamaraRender implements GLSurfaceView.Renderer {
         gl.glLoadIdentity();
         gl.glFrustumf(-aspectRatio, aspectRatio, -3, 3, 2f, 15);// es la mas usada
 
-
-
     }
 
     @Override
@@ -38,19 +39,35 @@ public class CamaraRender implements GLSurfaceView.Renderer {
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glMatrixMode(gl.GL_MODELVIEW);
         gl.glLoadIdentity();
+//        GLU.gluLookAt(gl, 0, 4 * (float) Math.sin(i), 4 * (float) Math.cos(i),
+//                0, 0, 0, 0, (float) Math.cos(i), 0);
+//        cubo.dibujar(gl);
 
-        GLU.gluLookAt(gl,
-                5*(float) Math.cos(i), 5*(float) Math.sin(i), 0,
-                0,0,0,
-                0,0,1);
-        cubo.dibujar(gl);
-
-        gl.glTranslatef(0, 2, 0);
-        gl.glScalef(0.5f,0.5f,0.5f);
-        cubo.dibujar(gl);
+        if (keycode == KeyEvent.KEYCODE_SYSTEM_NAVIGATION_UP) {
+            GLU.gluLookAt(gl, 0, 4 * (float) Math.sin(i), 4 * (float) Math.cos(i),
+                    0, 0, 0, 0, (float) Math.cos(i), 0);
+            cubo.dibujar(gl);
+            i += 0.05f;
+        } else if (keycode == KeyEvent.KEYCODE_SYSTEM_NAVIGATION_DOWN) {
+            GLU.gluLookAt(gl,
+                    0, 4 * (float) Math.cos(i), 4 * (float) Math.sin(i), 0, 0, 0,
+                    0, (float) Math.cos(i), 0);
+            cubo.dibujar(gl);
+            i += 0.05f;
+        } else if (keycode == KeyEvent.KEYCODE_SYSTEM_NAVIGATION_RIGHT) {
+            GLU.gluLookAt(gl, 5 * (float) Math.sin(i), 5 * (float) Math.cos(i), 0,
+                    0, 0, 0, 0, 0, 1);
+            cubo.dibujar(gl);
+            i += 0.05f;
+        } else if (keycode == KeyEvent.KEYCODE_SYSTEM_NAVIGATION_LEFT) {
+            GLU.gluLookAt(gl,
+                    5 * (float) Math.cos(i), 5 * (float) Math.sin(i), 0, 0, 0, 0,
+                    0, 0, 1);
+            cubo.dibujar(gl);
+            i += 0.05f;
+        }
 
         vIncremento += 0.5f;
-        i += 0.056f;
     }
 
 }

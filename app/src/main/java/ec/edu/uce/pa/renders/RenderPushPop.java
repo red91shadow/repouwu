@@ -6,7 +6,7 @@ import android.opengl.GLU;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import ec.edu.uce.pa.geometrias.Cubo;
+import ec.edu.uce.pa.geometrias.CuboColores;
 import ec.edu.uce.pa.geometrias.Triangulo;
 
 public class RenderPushPop implements GLSurfaceView.Renderer {
