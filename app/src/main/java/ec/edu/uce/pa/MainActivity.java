@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ec.edu.uce.pa.renders.RenderCuboColores;
+import ec.edu.uce.pa.renders.RenderCilindro;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
     public static float ejeX =0;
     public static float ejeY =0;
     public static float ejeZ =-3;
-    public static float iRotacion=0,iRotacionC=0;
+    public static float iRotacion=0;
+    //
+    public static float iRotacionC=0;
     public static boolean rotar=false;
     public static boolean ejeCamara = false;
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
         //manualmente
-        glSurfaceView.setRenderer(new RenderCuboColores());
+        glSurfaceView.setRenderer(new RenderCilindro());
         setContentView(glSurfaceView);
     }
 
@@ -61,12 +63,6 @@ public class MainActivity extends AppCompatActivity {
             case KeyEvent.KEYCODE_D:
                 ejeX +=0.1f;
                 return true;
-            case KeyEvent.KEYCODE_Q:
-                ejeZ -=0.1f;
-                return true;
-            case KeyEvent.KEYCODE_E:
-                ejeZ +=0.1f;
-                return true;
 
             case KeyEvent.KEYCODE_DPAD_UP:
                 ejeCamara = false;
@@ -75,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 rotarY = 0;
                 rotarZ = 0;
                 iRotacion-=2.5f;
-                iRotacionC-=0.01f;
+                iRotacionC-=0.05f;
                 return true;
 
             case KeyEvent.KEYCODE_DPAD_DOWN:
@@ -85,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 rotarY = 0;
                 rotarZ = 0;
                 iRotacion+=2.5f;
-                iRotacionC+=0.01f;
+                iRotacionC+=0.05f;
                 return true;
 
             case KeyEvent.KEYCODE_DPAD_LEFT:
@@ -95,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 rotarY = 1;
                 rotarZ = 0;
                 iRotacion-=2.5f;
-                iRotacionC+=0.01f;
+                iRotacionC+=0.05f;
                 return true;
 
             case KeyEvent.KEYCODE_DPAD_RIGHT:
@@ -105,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 rotarY = 1;
                 rotarZ = 0;
                 iRotacion+=2.5f;
-                iRotacionC-=0.01f;
+                iRotacionC-=0.05f;
                 return true;
             default:
                 Toast.makeText(this,"Otra tecla" , Toast.LENGTH_SHORT).show();

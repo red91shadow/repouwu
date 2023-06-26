@@ -48,36 +48,36 @@ public class CuboColores {
                 -0.5f, -0.5f, -0.5f,
         };
         float[] colores = {
-                0.8f, 0.0f, 0.0f, 1.0f,
-                0.8f, 0.0f, 0.0f, 1.0f,
-                0.8f, 0.0f, 0.0f, 1.0f,
-                0.8f, 0.0f, 0.0f, 1.0f,
-
-                0.8f, 0.0f, 0.0f, 1.0f,
-                0.8f, 0.0f, 0.0f, 1.0f,
-                0.8f, 0.0f, 0.0f, 1.0f,
-                0.8f, 0.0f, 0.0f, 1.0f,
-
-                0.0f, 0.8f, 0.0f, 1.0f,
-                0.0f, 0.8f, 0.0f, 1.0f,
-                0.0f, 0.8f, 0.0f, 1.0f,
-                0.0f, 0.8f, 0.0f, 1.0f,
-
-                0.0f, 0.8f, 0.0f, 1.0f,
-                0.0f, 0.8f, 0.0f, 1.0f,
-                0.0f, 0.8f, 0.0f, 1.0f,
-                0.0f, 0.8f, 0.0f, 1.0f,
-
-                1.0f, 0.5f, 0.0f, 1.0f,
-                1.0f, 0.5f, 0.0f, 1.0f,
-                1.0f, 0.5f, 0.0f, 1.0f,
-                1.0f, 0.5f, 0.0f, 1.0f,
-
-                1.0f, 0.5f, 0.0f, 1.0f,
-                1.0f, 0.5f, 0.0f, 1.0f,
-                1.0f, 0.5f, 0.0f, 1.0f,
-                1.0f, 0.5f, 0.0f, 1.0f
-
+                // Front face
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                1.0f, 0.0f, 0.0f, 1.0f, // Red
+                // Back face
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                0.0f, 1.0f, 0.0f, 1.0f, // Green
+                // Top face
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                0.0f, 0.0f, 1.0f, 1.0f, // Blue
+                // Bottom face
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+                // Right face
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                1.0f, 0.0f, 1.0f, 1.0f, // Magenta
+                // Left face
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+                0.0f, 1.0f, 1.0f, 1.0f, // Cyan
         };
         byte[] indices = {
                 0, 1, 2, 2, 3, 0,

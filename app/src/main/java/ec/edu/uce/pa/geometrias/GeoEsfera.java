@@ -11,9 +11,6 @@ import ec.edu.uce.pa.utilidades.Funciones;
 public class GeoEsfera {
     private FloatBuffer bufferVertices;
     private FloatBuffer bufferColores;
-
-    private ByteBuffer bufferIndices;
-    private final static int byteFlotante =4; //son 4 por que en  un flotante hay 4 bytes
     private final static int compPorVertice=3;
     private final static int compPorColores=4;
 
