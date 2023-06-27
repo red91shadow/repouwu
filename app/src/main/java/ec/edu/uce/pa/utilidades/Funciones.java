@@ -6,6 +6,17 @@ import java.nio.FloatBuffer;
 
 public class Funciones {
 
+    private static int[] arrTexturas=null;
+    public static FloatBuffer setFloatBuffer(float [] array){
+
+        FloatBuffer fb;
+        ByteBuffer bbBuffer = ByteBuffer.allocateDirect(array.length * 4);
+        bbBuffer.order(ByteOrder.nativeOrder());
+        fb = bbBuffer.asFloatBuffer();
+        fb .put(array);
+        fb .position(0);
+        return fb;
+    }
 
     public static FloatBuffer generarBuffer(float[] arrayVertices) {
         int byteFlotante = 4;
