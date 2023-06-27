@@ -73,12 +73,14 @@ public class Cilindro {
         top = new Plano(0.5f, 0, 0, temptop, indices);
         bottom = new Plano(0.8f, 0, 1, tempbottom, indices);
 ////////////////////////////////////////////////////
-        for (int i = 0; i < carasLaterales.length; i++) {
             float[] tempLat = new float[12];
-            for (int j = i * 3; j < 6; j++) {
-                tempLat[j] = temptop[j];
-                tempLat[j + 6] = tempbottom[j];
+        for (int i = 0; i < carasLaterales.length; i++) {
+            for (int j = 0; j < 6; j++) {
+                //todo arreglar el indice
+                tempLat[j] = temptop[i +j];
+                tempLat[j + 6] = tempbottom[i + j];
             }
+            System.out.println(Arrays.toString(tempLat));
             carasLaterales[i] = new Plano(0.6f, 0, 0, tempLat, new byte[]{0, 2, 3, 1});
         }
 
