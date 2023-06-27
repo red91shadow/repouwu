@@ -40,5 +40,17 @@ public class Funciones {
         }
         return coordinates;
     }
+    public static float[] calculateEllipseCoordinates(int n, float radiusX, float radiusY, float altura) {
+        float[] coordinates = new float[3 * n];
+        float angle = (float) (2 * Math.PI / n);
+
+        for (int i = 0; i < n; i++) {
+            coordinates[3 * i] = (float) (radiusX * Math.cos(i * angle));
+            coordinates[3 * i + 1] = (float) (radiusY * Math.sin(i * angle));
+            coordinates[3 * i + 2] = altura;
+        }
+        return coordinates;
+    }
+
 
 }

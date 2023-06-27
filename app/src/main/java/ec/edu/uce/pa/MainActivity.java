@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ec.edu.uce.pa.renders.RenderElipse;
 import ec.edu.uce.pa.renders.RenderPrisma;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
         //manualmente
-        glSurfaceView.setRenderer(new RenderPrisma());
+        glSurfaceView.setRenderer(new RenderElipse());
         setContentView(glSurfaceView);
     }
 
