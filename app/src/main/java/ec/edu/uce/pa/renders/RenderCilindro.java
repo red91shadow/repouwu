@@ -14,7 +14,8 @@ public class RenderCilindro implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
-        cilindro = new Cilindro(10, 2f, 2f);
+        gl.glEnable(GL10.GL_DEPTH_TEST);
+        cilindro = new Cilindro(5, 2f, 2f);
     }
 
     @Override
@@ -29,11 +30,14 @@ public class RenderCilindro implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 gl) {
         vIncremento += 1.0f;
-        gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+        gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
 
-        gl.glTranslatef(0.0f, 0.0f, -10.0f);
-        cilindro.dibujar(gl);
+        gl.glTranslatef(0.0f, 0.0f, -5.0f);
+        gl.glScalef(0.5f,0.5f,0.5f);
+        gl.glRotatef(vIncremento,0,1,0);
+        vIncremento++;
+        cilindro.dibujarCilindro(gl);
     }
 }

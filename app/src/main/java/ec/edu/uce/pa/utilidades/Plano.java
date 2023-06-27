@@ -57,7 +57,7 @@ public class Plano {
         gl.glEnableClientState(gl.GL_COLOR_ARRAY);
         bufferColores.position(0);
         gl.glColorPointer(comPorColores,gl.GL_FLOAT,0,bufferColores);
-        gl.glDrawElements(gl.GL_TRIANGLE_FAN,nIndicesG,gl.GL_UNSIGNED_BYTE,bufferIndicesPlano);
+        gl.glDrawElements(gl.GL_TRIANGLE_FAN,bufferIndicesPlano.limit(),gl.GL_UNSIGNED_BYTE,bufferIndicesPlano);
         gl.glFrontFace(gl.GL_CCW);
         gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
         gl.glDisableClientState(gl.GL_COLOR_ARRAY);
