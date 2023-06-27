@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ec.edu.uce.pa.renders.RenderCilindro;
+import ec.edu.uce.pa.renders.RenderPrisma;
+import ec.edu.uce.pa.renders.RenderSistemaSolar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
         //manualmente
-        glSurfaceView.setRenderer(new RenderCilindro());
+        glSurfaceView.setRenderer(new RenderPrisma());
         setContentView(glSurfaceView);
     }
 
