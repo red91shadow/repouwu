@@ -67,8 +67,7 @@ public class Triangulo {
         gl.glColorPointer(compPorColores, gl.GL_FLOAT,0,bufferColores);
         gl.glEnableClientState(gl.GL_COLOR_ARRAY);
 
-        gl.glDrawElements(gl.GL_TRIANGLES,12,gl.GL_UNSIGNED_BYTE,bufferIndices);
-        gl.glLineWidth(300);
+        gl.glDrawElements(gl.GL_TRIANGLES,6,gl.GL_UNSIGNED_BYTE,bufferIndices);
 
         gl.glFrontFace(gl.GL_CCW);
         gl.glDisableClientState(gl.GL_VERTEX_ARRAY);

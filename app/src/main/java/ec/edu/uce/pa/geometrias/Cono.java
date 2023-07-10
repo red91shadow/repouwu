@@ -81,15 +81,8 @@ public class Cono {
         bufferVertices.position(0);
         gl.glVertexPointer(comPorVertices,gl.GL_FLOAT,0,bufferVertices);
         gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
-
-//        bufferColores.position(0);
-//        gl.glColorPointer(comPorColor,gl.GL_FLOAT,0,bufferColores);
-//        gl.glEnableClientState(gl.GL_COLOR_ARRAY);
-
-        gl.glColor4f(1,0,0,1);//ROJO
+   gl.glColor4f(0.5f,0.2f,0,1);//ROJO
         gl.glDrawArrays(gl.GL_TRIANGLE_FAN,0, segmentos*3 );
-
-
 
         gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
         gl.glDisableClientState(gl.GL_COLOR_ARRAY);

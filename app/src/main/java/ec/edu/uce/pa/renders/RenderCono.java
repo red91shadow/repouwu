@@ -5,17 +5,17 @@ import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import ec.edu.uce.pa.geometrias.Cilindro;
+import ec.edu.uce.pa.geometrias.Cono;
 
-public class RenderCilindro implements GLSurfaceView.Renderer {
+public class RenderCono implements GLSurfaceView.Renderer {
     private float vIncremento;
-    private Cilindro cilindro;
+    private Cono cilindro;
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         gl.glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         gl.glEnable(GL10.GL_DEPTH_TEST);
-        cilindro = new Cilindro(5, 2f, 2f);
+        cilindro = new Cono(1,2,50);
     }
 
     @Override
@@ -36,8 +36,8 @@ public class RenderCilindro implements GLSurfaceView.Renderer {
 
         gl.glTranslatef(0.0f, 0.0f, -5.0f);
         gl.glScalef(0.5f,0.5f,0.5f);
-        gl.glRotatef(vIncremento,0,1,0);
+        gl.glRotatef(vIncremento,0,1,1);
         vIncremento++;
-        cilindro.dibujarCilindro(gl);
+        cilindro.dibujar(gl);
     }
 }

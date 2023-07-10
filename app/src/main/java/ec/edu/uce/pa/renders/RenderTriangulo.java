@@ -32,8 +32,7 @@ public class RenderTriangulo implements GLSurfaceView.Renderer {
         gl.glMatrixMode(gl.GL_MODELVIEW); //matriz modelo
         gl.glLoadIdentity();
 
-
-        gl.glTranslatef(0.0f, 0.0f,-8.0f);//la posiciòn donde se dibujarà
+        gl.glTranslatef(0.0f, 0.0f,-4.0f);//la posiciòn donde se dibujarà
         gl.glRotatef(vIncremento,0,0,1);
         triangulo.dibujar(gl);
         vIncremento++;

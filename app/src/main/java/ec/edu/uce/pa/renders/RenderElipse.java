@@ -15,15 +15,16 @@ public class RenderElipse implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig eglConfig) {
         gl.glClearColor(0.8f, 0.8f,0.8f,1.0f);
-        linea = new Elipse();
+        linea = new Elipse(0,0,1,2,50);
     }
 
     @Override
-    public void onSurfaceChanged(GL10 gl, int ancho, int alto) {
-        gl.glViewport(0,0,ancho, alto);//origen "x=0" y "y=0" por defecto alto y ancho de la pantalla, es practicamente la ventana de copordenas donde se va a dibujar
-        gl.glMatrixMode(gl.GL_PROJECTION);
-        gl.glFrustumf(-4, 4, -4,4,3,30);// es la mas usada
-        //gl.glOrthof(-5,5,-5,5,1,30);//en projecciòn ortogonal se usa depende a lo que se estè programando
+    public void onSurfaceChanged(GL10 gl, int width, int height) {
+        float aspectRatio = (float) width / (float) height;
+        gl.glViewport(0, 0, width, height);
+        gl.glMatrixMode(GL10.GL_PROJECTION);
+        gl.glLoadIdentity();
+        gl.glFrustumf(-aspectRatio, aspectRatio, -aspectRatio*2, aspectRatio*2, 2, 30);
     }
 
     @Override
@@ -31,8 +32,10 @@ public class RenderElipse implements GLSurfaceView.Renderer {
         gl.glClear(gl.GL_COLOR_BUFFER_BIT);
         gl.glMatrixMode(gl.GL_MODELVIEW); //matriz modelo
         gl.glLoadIdentity();//centro de cordenadas
-        gl.glTranslatef(0.0f, 0.0f,-4.0f);
+        gl.glTranslatef(0.0f, 0.0f,-8.0f);
+        gl.glRotatef(vIncremento,0,0,1);
         linea.dibujar(gl);
+        vIncremento++;
 
     }
 }
