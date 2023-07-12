@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
         //manualmente
-        glSurfaceView.setRenderer(new RenderPlaneta());
+        glSurfaceView.setRenderer(new RenderCuadradoTextura(this));
         setContentView(glSurfaceView);
     }
 
