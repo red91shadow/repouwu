@@ -82,10 +82,10 @@ public class RenderAstro implements GLSurfaceView.Renderer {
     }
     @Override
     public void onSurfaceChanged(GL10 gl, int ancho, int alto) {
-        float aspectRatio = ((float) alto / (float) ancho);
+        float aspectRatio = ((float) ancho / (float) alto);
         gl.glViewport(0,0,ancho,alto);
         gl.glMatrixMode(gl.GL_PROJECTION);
-        gl.glFrustumf(-aspectRatio,aspectRatio,-aspectRatio*2,aspectRatio*2,1,30);
+        gl.glFrustumf(-aspectRatio,aspectRatio,-aspectRatio*2,aspectRatio*2,1,15);
 
     }
     @Override
@@ -98,8 +98,6 @@ public class RenderAstro implements GLSurfaceView.Renderer {
        gl.glLightfv(LUZ0,gl.GL_AMBIENT, Funciones.generarBuffer(LuzBlanco));
         gl.glLightfv(LUZ0,gl.GL_DIFFUSE, Funciones.generarBuffer(LuzBlanco));
         gl.glLightfv(LUZ0,gl.GL_SPECULAR, Funciones.generarBuffer(LuzBlanco));
-        gl.glEnable(gl.GL_LIGHTING);
-        gl.glEnable(LUZ0);
 
 //        gl.glLightfv(LUZ1,gl.GL_POSITION, Funciones.generarBuffer(posicionLuz0));
 //        gl.glLightfv(LUZ1,gl.GL_DIFFUSE, Funciones.generarBuffer(LuzVerdeMed));
@@ -107,8 +105,10 @@ public class RenderAstro implements GLSurfaceView.Renderer {
 //        gl.glLightfv(LUZ2,gl.GL_POSITION, Funciones.generarBuffer(posicionLuz0));
 //        gl.glLightfv(LUZ2,gl.GL_DIFFUSE, Funciones.generarBuffer(LuzBlancoMed));
 
+        gl.glEnable(gl.GL_LIGHTING);
 
 
+        gl.glEnable(LUZ0);
 //        gl.glEnable(LUZ2);
 //        gl.glEnable(LUZ1);
 
@@ -149,6 +149,6 @@ public class RenderAstro implements GLSurfaceView.Renderer {
 
         astro.dibujar(gl);
 
-        vIncremento += 3f;
+        vIncremento += 0.05F;
     }
 }

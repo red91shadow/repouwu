@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ec.edu.uce.pa.AtrosGrupal.RenderAstroGrupo;
 import ec.edu.uce.pa.evaluacion.RenderEvaluacion;
 import ec.edu.uce.pa.renders.RenderElipse;
 import ec.edu.uce.pa.renders.*;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         glSurfaceView = new GLSurfaceView(this);
         //manualmente
-        glSurfaceView.setRenderer(new RenderPlaneta());
+        glSurfaceView.setRenderer(new RenderPiramideTexture(this));
         setContentView(glSurfaceView);
     }
 

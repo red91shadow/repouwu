@@ -35,7 +35,7 @@ public class RenderEsfera implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        gl.glClear(gl.GL_COLOR_BUFFER_BIT );
+        gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glMatrixMode(gl.GL_MODELVIEW);
         gl.glLoadIdentity();
 
