@@ -34,12 +34,12 @@ public class RenderCuadradoTexture implements GLSurfaceView.Renderer {
         gl.glEnable(gl.GL_TEXTURE_2D);
         gl.glGenTextures(1, arrayTexturas, 0);
 
-//        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.screenshot_2023_05_14_202256);
-//        gl.glBindTexture(gl.GL_TEXTURE_2D, arrayTexturas[0]);
-//        GLUtils.texImage2D(gl.GL_TEXTURE_2D,0,bitmap,0);
-//        gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER,gl.GL_LINEAR);
-//        gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR);
-//        bitmap.recycle();
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.screenshot_2023_05_14_202256);
+        gl.glBindTexture(gl.GL_TEXTURE_2D, arrayTexturas[0]);
+        GLUtils.texImage2D(gl.GL_TEXTURE_2D,0,bitmap,0);
+        gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER,gl.GL_LINEAR);
+        gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR);
+        bitmap.recycle();
         //Funciones.bitmapimagen(gl,context,R.drawable.screenshot_2023_05_14_202256,arrayTexturas);
 
     }
