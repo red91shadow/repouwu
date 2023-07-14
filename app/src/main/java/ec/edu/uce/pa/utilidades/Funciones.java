@@ -29,6 +29,7 @@ public class Funciones {
         bitmap.recycle();
         return bitmap;
     }
+
     public static FloatBuffer setFloatBuffer(float [] array){
 
         FloatBuffer fb;
@@ -75,4 +76,7 @@ public class Funciones {
     }
 
 
+    public static void bitmapimagen(GL10 gl, Context context, int screenshot_2023_05_14_202256, int[] arrayTexturas) {
+
+    }
 }

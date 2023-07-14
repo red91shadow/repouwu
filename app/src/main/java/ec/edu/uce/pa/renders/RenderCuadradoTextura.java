@@ -48,7 +48,6 @@ public class RenderCuadradoTextura implements GLSurfaceView.Renderer {
         gl.glViewport(0, 0, ancho, alto);//origen "x=0" y "y=0" por defecto alto y ancho de la pantalla, es practicamente la ventana de copordenas donde se va a dibujar
         gl.glMatrixMode(gl.GL_PROJECTION);
         gl.glFrustumf(-aspectRatio, aspectRatio, -aspectRatio * 2, aspectRatio * 2, 1, 30);
-      //  gl.glTexEnvf(gl.GL_TEXTURE_ENV,gl.GL_TEXTURE_ENV_MODE, gl.GL_REPLACE);// es la mas usada
     }
 
     @Override

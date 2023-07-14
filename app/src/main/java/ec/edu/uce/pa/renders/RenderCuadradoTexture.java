@@ -40,7 +40,7 @@ public class RenderCuadradoTexture implements GLSurfaceView.Renderer {
         gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER,gl.GL_LINEAR);
         gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR);
         bitmap.recycle();
-        //Funciones.bitmapimagen(gl,context,R.drawable.screenshot_2023_05_14_202256,arrayTexturas);
+        Funciones.bitmapimagen(gl,context,R.drawable.screenshot_2023_05_14_202256,arrayTexturas);
 
     }
 
