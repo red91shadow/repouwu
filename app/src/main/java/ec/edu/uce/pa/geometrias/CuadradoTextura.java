@@ -63,10 +63,6 @@ public class CuadradoTextura {
         gl.glVertexPointer(compPorVertice, gl.GL_FLOAT, 0, bufferVertices);
         gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
 
-//        bufferColores.position(0);
-//        gl.glColorPointer(compPorColores, gl.GL_FLOAT,0,bufferColores);
-//        gl.glEnableClientState(gl.GL_COLOR_ARRAY);
-
         gl.glTexCoordPointer(2,gl.GL_FLOAT,0,bufferTextura);
         gl.glEnableClientState(gl.GL_TEXTURE_COORD_ARRAY);
 
@@ -74,7 +70,6 @@ public class CuadradoTextura {
 
         gl.glFrontFace(gl.GL_CCW);
         gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
-//        gl.glDisableClientState(gl.GL_COLOR_ARRAY);
         gl.glDisableClientState(gl.GL_TEXTURE_COORD_ARRAY);
     }
 }
