@@ -43,7 +43,6 @@ public class RenderPiramideTexture implements GLSurfaceView.Renderer {
     }
     @Override
     public void onDrawFrame(GL10 gl) {
-        Bitmap bitmap;
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT);
         gl.glMatrixMode(gl.GL_MODELVIEW);
         gl.glLoadIdentity();
@@ -51,31 +50,14 @@ public class RenderPiramideTexture implements GLSurfaceView.Renderer {
         gl.glTranslatef(0, 1.5f, -3);
         gl.glRotatef(-vIncremento, 0, 2, 0);
 
-        gl.glPushMatrix();
-        Funciones.bitmapimagen(gl,context,R.drawable.cara1,arrayTexturas,0);
-        trianguloTexture.dibujarCara0(gl);
-        gl.glPopMatrix();
-
-        gl.glPushMatrix();
-        Funciones.bitmapimagen(gl,context, R.drawable.cara2,arrayTexturas,1);
-        trianguloTexture.dibujarCara1(gl);
-        gl.glPopMatrix();
-
-        gl.glPushMatrix();
-//        Funciones.bitmapimagen(gl,context,R.drawable.cara3,arrayTexturas,2);
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.cara3);
-        gl.glBindTexture(gl.GL_TEXTURE_2D, arrayTexturas[2]);
-        GLUtils.texImage2D(gl.GL_TEXTURE_2D,0,bitmap,0);
-        gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER,gl.GL_LINEAR);
-        gl.glTexParameterf(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR);
-        trianguloTexture.dibujarCara2(gl);
-        bitmap.recycle();
-        gl.glPopMatrix();
-
-        gl.glPushMatrix();
         Funciones.bitmapimagen(gl,context,R.drawable.cara4,arrayTexturas,3);
         trianguloTexture.dibujarCara3(gl);
-        gl.glPopMatrix();
+        Funciones.bitmapimagen(gl,context,R.drawable.cara1,arrayTexturas,0);
+        trianguloTexture.dibujarCara0(gl);
+        Funciones.bitmapimagen(gl,context,R.drawable.cara2,arrayTexturas,1);
+        trianguloTexture.dibujarCara1(gl);
+        Funciones.bitmapimagen(gl,context,R.drawable.cara3,arrayTexturas,2);
+        trianguloTexture.dibujarCara2(gl);
 
         gl.glPushMatrix();
         Funciones.bitmapimagen(gl,context,R.drawable.cara5,arrayTexturas,4);

@@ -14,14 +14,8 @@ public class TrianguloTexture {
     private FloatBuffer bufferTexturas1;
     private FloatBuffer bufferTexturas2;
     private FloatBuffer bufferTexturas3;
-    private FloatBuffer bufferTexturas4;
-
-    private final static int byteFlotante = 4;
     private final static int compPorVertices = 3;
-
-    private ByteBuffer bufferIndices;
     private ByteBuffer bufferIndicePiramide;
-    private ByteBuffer bufferIndiceBase;
 
     public TrianguloTexture() {
         float[] vertices = {
@@ -38,10 +32,7 @@ public class TrianguloTexture {
                 0,3,4,
                 0,4,1
         };
-        byte[] indicesBase = {
-                1,2,3,
-                1,3,4
-        };
+
         float[] texturas0 = {
 
                 0.5f,0,
@@ -61,8 +52,8 @@ public class TrianguloTexture {
                 0.0f,1.0f
         };
         float[] texturas3 = {
-                0.5f,1.0f,
-                0.75f,0.0f,
+                0.0f,0.0f,
+                0.0f,1.0f,
                 1.0f,1.0f
         };
         float[] texturas4 = {
@@ -77,25 +68,12 @@ public class TrianguloTexture {
         bufferTexturas1 = Funciones.generarBuffer(texturas1);
         bufferTexturas2 = Funciones.generarBuffer(texturas2);
         bufferTexturas3 = Funciones.generarBuffer(texturas3);
-        bufferTexturas4 = Funciones.generarBuffer(texturas4);
 
         bufferIndicePiramide = ByteBuffer.allocateDirect(indicesPiramide.length);
         bufferIndicePiramide.order(ByteOrder.nativeOrder());
         bufferIndicePiramide.put(indicesPiramide);
         bufferIndicePiramide.position(0);
 
-        bufferIndiceBase = ByteBuffer.allocateDirect(indicesBase.length);
-        bufferIndiceBase.order(ByteOrder.nativeOrder());
-        bufferIndiceBase.put(indicesBase);
-        bufferIndiceBase.position(0);
-    }
-    public void dibujar(GL10 gl){
-        dibujarCara0(gl);
-        dibujarCara1(gl);
-        dibujarCara2(gl);
-        dibujarCara3(gl);
-
-        dibujarBase(gl);
     }
 
     public void dibujarCara0(GL10 gl) {
@@ -104,10 +82,9 @@ public class TrianguloTexture {
         gl.glEnableClientState(gl.GL_TEXTURE_COORD_ARRAY);
 
         bufferVertices.position(0);
+        bufferIndicePiramide.position(0);
         gl.glVertexPointer(compPorVertices, gl.GL_FLOAT, 0, bufferVertices);
         gl.glTexCoordPointer(2,gl.GL_FLOAT,0,bufferTexturas0);
-
-        bufferIndicePiramide.position(0);
         gl.glDrawElements(gl.GL_TRIANGLE_FAN, 3, gl.GL_UNSIGNED_BYTE, bufferIndicePiramide);
 
         gl.glFrontFace(gl.GL_CCW);
@@ -120,12 +97,12 @@ public class TrianguloTexture {
         gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
         gl.glEnableClientState(gl.GL_TEXTURE_COORD_ARRAY);
 
+        bufferVertices.position(0);
+        bufferIndicePiramide.position(3);
         gl.glVertexPointer(compPorVertices, gl.GL_FLOAT, 0, bufferVertices);
         gl.glTexCoordPointer(2,gl.GL_FLOAT,0,bufferTexturas1);
 
-        bufferIndicePiramide.position(3);
         gl.glDrawElements(gl.GL_TRIANGLE_FAN, 3, gl.GL_UNSIGNED_BYTE, bufferIndicePiramide);
-
         gl.glFrontFace(gl.GL_CCW);
         gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
         gl.glDisableClientState(gl.GL_TEXTURE_COORD_ARRAY);
@@ -134,10 +111,10 @@ public class TrianguloTexture {
         gl.glFrontFace(gl.GL_CW);
         gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
         gl.glEnableClientState(gl.GL_TEXTURE_COORD_ARRAY);
-
+        bufferVertices.position(0);
+        bufferIndicePiramide.position(6);
         gl.glVertexPointer(compPorVertices, gl.GL_FLOAT, 0, bufferVertices);
         gl.glTexCoordPointer(2,gl.GL_FLOAT,0,bufferTexturas2);
-        bufferIndicePiramide.position(6);
         gl.glDrawElements(gl.GL_TRIANGLE_FAN, 3, gl.GL_UNSIGNED_BYTE, bufferIndicePiramide);
 
         gl.glFrontFace(gl.GL_CCW);
@@ -148,26 +125,12 @@ public class TrianguloTexture {
         gl.glFrontFace(gl.GL_CW);
         gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
         gl.glEnableClientState(gl.GL_TEXTURE_COORD_ARRAY);
-
+        bufferVertices.position(0);
         gl.glVertexPointer(compPorVertices, gl.GL_FLOAT, 0, bufferVertices);
 
         gl.glTexCoordPointer(2,gl.GL_FLOAT,0,bufferTexturas3);
         bufferIndicePiramide.position(9);
         gl.glDrawElements(gl.GL_TRIANGLE_FAN, 3, gl.GL_UNSIGNED_BYTE, bufferIndicePiramide);
-
-        gl.glFrontFace(gl.GL_CCW);
-        gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
-        gl.glDisableClientState(gl.GL_TEXTURE_COORD_ARRAY);
-    }
-    public void dibujarBase(GL10 gl) {
-        gl.glFrontFace(gl.GL_CW);
-        gl.glEnableClientState(gl.GL_VERTEX_ARRAY);
-        gl.glEnableClientState(gl.GL_TEXTURE_COORD_ARRAY);
-
-        gl.glVertexPointer(compPorVertices, gl.GL_FLOAT, 0, bufferVertices);
-        gl.glTexCoordPointer(2,gl.GL_FLOAT,0,bufferTexturas4);
-        bufferIndiceBase.position(0);
-        gl.glDrawElements(gl.GL_TRIANGLES, 2*3, gl.GL_UNSIGNED_BYTE, bufferIndicePiramide);
 
         gl.glFrontFace(gl.GL_CCW);
         gl.glDisableClientState(gl.GL_VERTEX_ARRAY);
